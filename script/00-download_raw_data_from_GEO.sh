@@ -22,12 +22,12 @@ cd "${OUT_DIR}/GSE81538"
 
 wget "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE81nnn/GSE81538/suppl/GSE81538_UCSC_Human_hg19_knownGenes_GTF_appended_10sep2012.gtf.gz"
 
-# download the gene expression file
+# download the gene expression file: log2(FPKM + 0.1)
 wget "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE81nnn/GSE81538/suppl/GSE81538_gene_expression_405_transformed.csv.gz"
 
-# download the transcript expression file
-# wget "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE81nnn/GSE81538/suppl/GSE81538_map_transcriptID_geneSymbol.csv.gz"
-# wget "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE81nnn/GSE81538/suppl/GSE81538_transcript_expression_405.csv.gz"
+# download the transcript expression file: raw FPKM
+wget "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE81nnn/GSE81538/suppl/GSE81538_map_transcriptID_geneSymbol.csv.gz"
+wget "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE81nnn/GSE81538/suppl/GSE81538_transcript_expression_405.csv.gz"
 
 # download pathology consensus key file
 wget "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE81nnn/GSE81538/suppl/GSE81538_pathology_consensus_key.xlsx"
@@ -51,12 +51,12 @@ echo "Download of raw data from GSE81538 completed."
 mkdir -p "${OUT_DIR}/GSE96058"
 cd "${OUT_DIR}/GSE96058"
 
-# download the gene expression file
+# download the gene expression file: log2(FPKM + 0.1)
 wget "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE96nnn/GSE96058/suppl/GSE96058_UCSC_hg38_knownGenes_22sep2014.gtf.gz"
 wget "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE96nnn/GSE96058/suppl/GSE96058_gene_expression_3273_samples_and_136_replicates_transformed.csv.gz"
 
-# download the transcript expression file
-# wget "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE96nnn/GSE96058/suppl/GSE96058_transcript_expression_3273_samples_and_136_replicates.csv.gz"
+# download the transcript expression file: raw FPKM
+wget "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE96nnn/GSE96058/suppl/GSE96058_transcript_expression_3273_samples_and_136_replicates.csv.gz"
 
 # download the soft file
 wget "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE96nnn/GSE96058/soft/GSE96058_family.soft.gz"
