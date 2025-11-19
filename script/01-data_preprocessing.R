@@ -31,7 +31,6 @@ metadata <- read_excel("data/raw_data/npj_2022/Supplemental Data Table/Supplemen
   rename_with(~str_replace(.x, "days", "years"), ends_with("days")) %>%
   # make endpoint uppercase
   rename_all(~str_replace(.x, "(?<=(DR|R|BC))Fi_", "FI_")) %>%
-  rename_all(~str_remove(.x, "_event")) %>%
   # keep only the 6660 patients that passed all the quality check and skip technical duplicates
   filter(Follow.up.cohort == T) %>%
   select(Patient, Case, Sample, GEX.assay, Library_protocol = LibraryProtocol,
@@ -168,8 +167,6 @@ annot <- data.frame(
   row.names = rownames(vst_adjusted)
 ) 
 
-data(scmod2.robust)
-
 scmod2_classification <- molecular.subtyping(
   sbt.model = "scmod2",          # the pretrained model
   data      = t(vst_adjusted),     # your expression matrix
@@ -182,8 +179,6 @@ scmod2_class_vst <- scmod2_classification[["subtype"]] %>%
   rownames_to_column("GEX.assay") %>%
   dplyr::rename("SCMOD2_VST" =  ".") %>%
   mutate(SCMOD2_VST = factor(SCMOD2_VST, levels = c("ER+/HER2- Low Prolif", "ER+/HER2- High Prolif",  "HER2+", "ER-/HER2-")))
-
-data(pam50.robust)
 
 pam50_classification <- molecular.subtyping(
   sbt.model = "pam50",          # the pretrained model
